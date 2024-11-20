@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class Pipe : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Rigidbody rb;
+    public float speed;
+    public List<GameObject> trapsHolder = new List<GameObject>();
+
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
+        rb.velocity = Vector3.right * speed;
+        if (transform.position.x > 10)
+        {
+            transform.position = new Vector3(-20, 0, 0);
+        }
+    }
+
+    void RandomizeTraps()
+    {
+        int randomNum = Random.Range(0, 3);
         
+        foreach (GameObject trap in trapsHolder)
+        {
+            trap.SetActive(false);
+        }
+        trapsHolder[randomNum].SetActive(true);
     }
 }
