@@ -198,6 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 71286393}
+  - component: {fileID: 71286394}
   m_Layer: 0
   m_Name: Pipes
   m_TagString: Untagged
@@ -225,6 +226,28 @@ Transform:
   - {fileID: 55780021}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &71286394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71286392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b7e3250b245d849ac1646bf0f89b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pipes:
+  - {fileID: 175812831}
+  - {fileID: 1525575381}
+  - {fileID: 85782965}
+  - {fileID: 55780021}
+  positions:
+  - {fileID: 2019521195}
+  - {fileID: 670011031}
+  - {fileID: 71784693}
+  - {fileID: 1533341447}
 --- !u!1 &71784692
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +419,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 71286393}
     m_Modifications:
+    - target: {fileID: 1692384366004017291, guid: 39ce852af20f50048a42c13529b8129d, type: 3}
+      propertyPath: firstRoom
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3455633957792055789, guid: 39ce852af20f50048a42c13529b8129d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
