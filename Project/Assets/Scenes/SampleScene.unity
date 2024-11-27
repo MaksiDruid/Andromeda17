@@ -754,7 +754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1040718945
 Transform:
   m_ObjectHideFlags: 0
@@ -801,7 +801,8 @@ MonoBehaviour:
   - {fileID: 968120599}
   - {fileID: 983319658}
   firstRoom: {fileID: 1571767647}
-  speed: 0
+  camera: {fileID: 963194228}
+  speed: 10
 --- !u!1001 &1052861989
 PrefabInstance:
   m_ObjectHideFlags: 0

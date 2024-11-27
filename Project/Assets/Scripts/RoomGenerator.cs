@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RoomGenerator : MonoBehaviour
 {
     [SerializeField] List<Rigidbody> roomsRbs = new List<Rigidbody>();
     [SerializeField] List<Transform> roomsPos = new List<Transform>();
     [SerializeField] Rigidbody firstRoom;
+    [SerializeField] Transform camera;
     [SerializeField] float speed;
     private int roomsCount;
+    private Action OnMoveEnded;
 
     // Start is called before the first frame update
     void Awake()
@@ -16,6 +20,7 @@ public class RoomGenerator : MonoBehaviour
         firstRoom.gameObject.SetActive(true);
         roomsCount = roomsRbs.Count;
 
+        StartCoroutine(MoveRoom(firstRoom));
         foreach (var room in roomsPos) 
         {
             GenerateRoom(room);
@@ -31,5 +36,22 @@ public class RoomGenerator : MonoBehaviour
         }
         roomsRbs[randomNum].transform.position = room.position;
         roomsRbs[randomNum].gameObject.SetActive(true);
+
+        StartCoroutine(MoveRoom(roomsRbs[randomNum]));
+    }
+
+    private IEnumerator MoveRoom(Rigidbody body)
+    {
+        body.velocity = Vector3.back * speed;
+
+        while (body.transform.position.z < camera.position.z)
+        {
+            yield return null;
+        }
+
+        body.velocity = Vector3.zero;
+        body.gameObject.SetActive(false);
+
+        OnMoveEnded();
     }
 }
