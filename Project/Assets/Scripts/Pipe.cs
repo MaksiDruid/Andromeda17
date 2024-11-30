@@ -6,7 +6,7 @@ public class Pipe : MonoBehaviour
 {
     public bool firstRoom;
     Rigidbody body;
-    int speed = 5;
+    int speed = 2;
     // Start is called before the first frame update
     void Start()
     {

@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 1489773702319999001}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1378,6 +1378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9812cf908ae2683449ccf5c607f3d500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstRoom: 0
 --- !u!1 &8868989324613948001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,7 +1393,7 @@ GameObject:
   - component: {fileID: 8121757088623489289}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
