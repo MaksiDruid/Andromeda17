@@ -12,11 +12,12 @@ public class RoomGenerator : MonoBehaviour
     [SerializeField] Transform camera;
     [SerializeField] float speed;
     private int roomsCount;
-    private Action OnMoveEnded;
+    private Action<Transform> OnMoveEnded;
 
     // Start is called before the first frame update
     void Awake()
     {
+        OnMoveEnded = (pos) => GenerateRoom(pos);
         firstRoom.gameObject.SetActive(true);
         roomsCount = roomsRbs.Count;
 
@@ -42,16 +43,15 @@ public class RoomGenerator : MonoBehaviour
 
     private IEnumerator MoveRoom(Rigidbody body)
     {
-        body.velocity = Vector3.back * speed;
-
-        while (body.transform.position.z < camera.position.z)
+        while (body.transform.position.z > camera.position.z)
         {
+            body.velocity = Vector3.back * speed;
             yield return null;
         }
 
         body.velocity = Vector3.zero;
         body.gameObject.SetActive(false);
 
-        OnMoveEnded();
+        OnMoveEnded(roomsPos[roomsPos.Count-1]);
     }
 }
