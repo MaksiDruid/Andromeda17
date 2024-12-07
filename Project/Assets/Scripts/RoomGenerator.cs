@@ -6,10 +6,9 @@ using Random = UnityEngine.Random;
 
 public class RoomGenerator : MonoBehaviour
 {
-    [SerializeField] List<Rigidbody> roomsRbs = new List<Rigidbody>();
+    [SerializeField] List<Transform> roomsRbs = new List<Transform>();
     [SerializeField] List<Transform> roomsPos = new List<Transform>();
-    [SerializeField] Rigidbody firstRoom;
-    [SerializeField] Transform camera;
+    [SerializeField] Transform firstRoom;
     [SerializeField] float speed;
     private int roomsCount;
     private Action<Transform> OnMoveEnded;
@@ -41,15 +40,14 @@ public class RoomGenerator : MonoBehaviour
         StartCoroutine(MoveRoom(roomsRbs[randomNum]));
     }
 
-    private IEnumerator MoveRoom(Rigidbody body)
+    private IEnumerator MoveRoom(Transform body)
     {
-        while (body.transform.position.z > camera.position.z)
+        while (body.transform.position.z > -7)
         {
-            body.velocity = Vector3.back * speed;
+            body.position += Vector3.back * speed * Time.deltaTime;
             yield return null;
         }
 
-        body.velocity = Vector3.zero;
         body.gameObject.SetActive(false);
 
         OnMoveEnded(roomsPos[roomsPos.Count-1]);
