@@ -286,7 +286,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6032513392654173045}
   speed: 5
-  trapsHolder: []
+  trapsHolder:
+  - {fileID: 4828441509194587385}
+  - {fileID: 6505333704349361482}
+  - {fileID: 8648016547037839854}
 --- !u!1 &1821244822983997038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,6 +1349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 313340231800744481}
+  - component: {fileID: 6685812597151332959}
   m_Layer: 0
   m_Name: Sticks
   m_TagString: Untagged
@@ -1373,6 +1377,24 @@ Transform:
   - {fileID: 7131753954389518109}
   m_Father: {fileID: 1504137315424051959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6685812597151332959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828441509194587385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32de3a44decbe0649b4ec4092f3f8e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singleTraps:
+  - {fileID: 651945808586085390}
+  - {fileID: 5048330679547440886}
+  - {fileID: 3692894020246795387}
+  - {fileID: 5179748697598032609}
+  - {fileID: 3914083532269907986}
 --- !u!1 &5048330679547440886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,6 +1901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4163742351626728711}
+  - component: {fileID: 6548955765745797066}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -1903,6 +1926,21 @@ Transform:
   - {fileID: 2168363234165179872}
   m_Father: {fileID: 1504137315424051959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6548955765745797066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6505333704349361482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32de3a44decbe0649b4ec4092f3f8e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singleTraps:
+  - {fileID: 6548462342918636845}
+  - {fileID: 3035440835678340347}
 --- !u!1 &6548462342918636845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,6 +2475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8289284137992576799}
+  - component: {fileID: 2985155788867447727}
   m_Layer: 0
   m_Name: Cubes
   m_TagString: Untagged
@@ -2463,6 +2502,23 @@ Transform:
   - {fileID: 2859817580265139761}
   m_Father: {fileID: 1504137315424051959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2985155788867447727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8648016547037839854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32de3a44decbe0649b4ec4092f3f8e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  singleTraps:
+  - {fileID: 2332443438079549030}
+  - {fileID: 8233104417114956414}
+  - {fileID: 3127746035999158218}
+  - {fileID: 42769808565289391}
 --- !u!1 &8684726104312625868
 GameObject:
   m_ObjectHideFlags: 0

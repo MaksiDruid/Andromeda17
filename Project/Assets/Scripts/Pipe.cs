@@ -10,13 +10,14 @@ public class Pipe : MonoBehaviour
 
     void Start()
     {
-        
+        RandomizeTraps();
     }
     void Update()
     {
         rb.velocity = Vector3.right * speed;
         if (transform.position.x > 10)
         {
+            RandomizeTraps();
             transform.position = new Vector3(-20, 0, 0);
         }
     }
