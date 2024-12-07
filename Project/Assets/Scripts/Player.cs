@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "trap")
         {
-            print("1");
             Time.timeScale = 0f;
         }
     }

@@ -5,26 +5,30 @@ using UnityEngine;
 public class Pipe : MonoBehaviour
 {
     public bool firstRoom;
-    Rigidbody body;
-    int speed = 2;
+    float speed = 2;
     // Start is called before the first frame update
     void Start()
     {
-        body = GetComponent<Rigidbody>();
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        body.velocity = new Vector3(-speed, 0, 0);
+        transform.position += new Vector3(-speed, 0, 0) * Time.deltaTime;
 
         if (transform.position.x < -5)
         {
-            transform.position = new Vector3(20, 0, 0);
+            transform.position = new Vector3(15, 0, 0);
             if (firstRoom == true)
             {
                 gameObject.SetActive(false);
             }
         }
+    }
+
+    void StartGame()
+    {
+        Time.timeScale = 1;
     }
 }
