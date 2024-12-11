@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     public Rigidbody rb;
     public float speed;
-    public Transform camera;
 
     // Start is called before the first frame update
     void Start()

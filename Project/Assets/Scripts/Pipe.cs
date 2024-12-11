@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Pipe : MonoBehaviour
 {
-    public Rigidbody rb;
     public float speed;
     public List<GameObject> trapsHolder = new List<GameObject>();
 
@@ -12,9 +11,10 @@ public class Pipe : MonoBehaviour
     {
         RandomizeTraps();
     }
+
     void Update()
     {
-        rb.velocity = Vector3.right * speed;
+        transform.position += Vector3.right * speed * Time.deltaTime;
         if (transform.position.x > 10)
         {
             RandomizeTraps();
