@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == dangerLayer)
         {
-            UI.Instance.StopTime();
+            UI.Instance.ShowMenu(true);
         }
     }
 }
