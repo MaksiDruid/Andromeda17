@@ -7,12 +7,14 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
+    public static UI Instance;
     public GameObject menu;
     public Button resumeButton;
 
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         Time.timeScale = 0;
     }
 

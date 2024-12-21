@@ -5,10 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody body;
+    AudioSource audio;
     float speed = 5;
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         body = GetComponent<Rigidbody>();
     }
 
@@ -24,7 +26,8 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "trap")
         {
-            Time.timeScale = 0f;
+            audio.Play();
+            UI.Instance.ShowMenu(true);
         }
     }
 }
