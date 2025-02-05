@@ -6,19 +6,19 @@ using Random = UnityEngine.Random;
 
 public class RoomGenerator : MonoBehaviour
 {
+    [SerializeField] float roomSize;
     [SerializeField] List<Transform> roomsRbs = new List<Transform>();
     [SerializeField] List<Transform> roomsPos = new List<Transform>();
     [SerializeField] Transform firstRoom;
     [SerializeField] float speed;
-    private int roomsCount;
+    private Transform lastAddedRoom;
     private Action<Transform> OnMoveEnded;
 
     // Start is called before the first frame update
     void Awake()
     {
-        OnMoveEnded = (pos) => GenerateRoom(pos);
+        OnMoveEnded = (pos) => GenerateRoom(pos, roomSize);
         firstRoom.gameObject.SetActive(true);
-        roomsCount = roomsRbs.Count;
 
         StartCoroutine(MoveRoom(firstRoom));
         foreach (var room in roomsPos) 
@@ -27,17 +27,18 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    private void GenerateRoom(Transform room)
+    private void GenerateRoom(Transform room, float delta = 0f)
     {
-        int randomNum = Random.Range(0, roomsCount);
-        while (roomsRbs[randomNum].gameObject.activeSelf == true)
-        {
-            randomNum = Random.Range(0, roomsCount);
-        }
-        roomsRbs[randomNum].transform.position = room.position;
-        roomsRbs[randomNum].gameObject.SetActive(true);
+        int randomNum = Random.Range(0, roomsRbs.Count);
 
-        StartCoroutine(MoveRoom(roomsRbs[randomNum]));
+        var newRoom = roomsRbs[randomNum];
+        newRoom.transform.position = room.position +
+            new Vector3(0, 0, delta);
+        newRoom.gameObject.SetActive(true);
+        lastAddedRoom = newRoom;
+        roomsRbs.Remove(newRoom);
+
+        StartCoroutine(MoveRoom(newRoom));
     }
 
     private IEnumerator MoveRoom(Transform body)
@@ -49,7 +50,8 @@ public class RoomGenerator : MonoBehaviour
         }
 
         body.gameObject.SetActive(false);
+        roomsRbs.Add(body);
 
-        OnMoveEnded(roomsPos[roomsPos.Count-1]);
+        OnMoveEnded(lastAddedRoom);
     }
 }
