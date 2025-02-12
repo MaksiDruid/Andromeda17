@@ -5,10 +5,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private SkinHolder skinHolder;
     [SerializeField] private float speed;
     private Rigidbody body;
     private const int dangerLayer = 10;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        PlayerData.Load();
+        Instantiate(skinHolder.Skins[PlayerData.SkinNum], transform);
+    }
+
     void Start()
     {
         body = GetComponent<Rigidbody>();
@@ -27,6 +35,14 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == dangerLayer)
         {
             UI.Instance.ShowMenu(true);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<Coin>(out Coin coin))
+        {
+            coin.SpawnCoin();
         }
     }
 }
