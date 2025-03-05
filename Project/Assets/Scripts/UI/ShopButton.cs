@@ -5,14 +5,14 @@ using UnityEngine.UI;
 public class ShopButton : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI buttonText;
+    [SerializeField] TextMeshProUGUI costText;
+    [SerializeField] Transform visualPlace;
     [SerializeField] Button button;
 
-    public void Init(int num)
+    public void Init(SingleSkinSO skin)
     {
-        buttonText.text = $"skin {num + 1}";
-        button.onClick.AddListener(()=>
-        {
-            PlayerData.ChangeSkin(num);
-        });
+        buttonText.text = skin.Name;
+        costText.text = skin.Price.ToString();
+        Instantiate(skin.Visual, visualPlace);
     }
 }
