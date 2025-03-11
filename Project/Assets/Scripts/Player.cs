@@ -13,8 +13,15 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        PlayerData.Load();
-        Instantiate(skinHolder.Skins[PlayerData.SkinNum], transform);
+        int skinNum = skinHolder.FindNumByName(PlayerData.CurrentSkin);
+        if (skinNum < 0)
+        {
+            Debug.LogError("—кин не найден");
+        }
+        else
+        {
+            Instantiate(skinHolder.Skins[skinNum].Visual, transform);
+        }
     }
 
     void Start()

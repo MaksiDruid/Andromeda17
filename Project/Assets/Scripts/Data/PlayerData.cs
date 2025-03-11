@@ -61,6 +61,7 @@ public static class PlayerData
     public static void ChangeSkin(string skinName)
     {
         currentSkin = skinName;
+        AddSkin(currentSkin);
     }
 
     // Добавление нового скина в список разблокированных
